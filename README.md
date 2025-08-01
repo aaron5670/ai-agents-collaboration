@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Agents Collaboration
+
+This is a Next.js application that allows you to create specialized AI agents and have them collaborate to solve complex tasks.
+
+![image](image.png)
+
+## Features
+
+- **Create Custom Agents**: Define agents with unique names, descriptions, expertise, and personalities.
+- **Multi-Agent Collaboration**: Select multiple agents to work together on a given task.
+- **Streaming UI**: Watch the agents collaborate in real-time through a chat interface.
+- **File-Based Storage**: Agents and collaborations are stored as JSON files in the `data` directory.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 22+
+- npm 
+- OpenAI API Key
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Clone the repository:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2.  **Install dependencies:**
 
-## Learn More
+    ```bash
+    npm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3.  **Set up environment variables:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Create a `.env.local` file in the root of the project and add your OpenAI API key:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```env
+    OPENAI_API_KEY=your_openai_api_key_here
+    ```
 
-## Deploy on Vercel
+4.  **Run the development server:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    npm run dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## How to Use
+
+1.  **Manage Agents**:
+    - Navigate to the "Manage Agents" page.
+    - Fill out the form to create a new agent by describing its purpose.
+
+2.  **Start a Collaboration**:
+    - Go to the "Collaborate" page.
+    - Select two or more agents to participate.
+    - Give the collaboration a name and description, then start the chat.
+
+3.  **Interact with Agents**:
+    - In the chat interface, provide a prompt or task for the agents.
+    - The agents will work together, each contributing based on its expertise, to provide a comprehensive solution.
+
+## Project Structure
+
+-   `src/app/`: Next.js App Router pages.
+-   `src/components/`: React components for the UI.
+-   `src/lib/`: Core application logic.
+    -   `actions/`: Server Actions for creating and managing agents and collaborations.
+    -   `aiService.ts`: Integration with the OpenAI API.
+    -   `fileSystem.ts`: Utilities for reading and writing to the file system.
+-   `src/types/`: TypeScript type definitions.
+-   `data/`: Stores agent and collaboration data in JSON files.
